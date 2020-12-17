@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './SearchBox.css';
+import {connect} from 'react-redux'
+import { searchLineHandler } from '../../redux/actions';
 
 class SearchBox extends Component {
-    state = {
-        searchLine: ''
-    }
+   
     searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+        this.props.searchLineHandler(e.target.value)
+        console.log(e.target.value)
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
     }
     render() {
-        const { searchLine } = this.state;
+        const { searchLine } = this.props;
 
         return (
             <div className="search-box">
@@ -40,4 +41,16 @@ class SearchBox extends Component {
     }
 }
  
-export default SearchBox;
+const mapStateToProps = (state) =>{
+    return{
+        searchLine: state.searchLine
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        searchLineHandler: (e) => dispatch(searchLineHandler(e))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);

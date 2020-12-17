@@ -9,7 +9,7 @@ class ListPage extends Component {
     }
     componentDidMount() {
         const id = this.props.match.params;
-        console.log(id);
+        console.log('ololo',id);
         // TODO: запрос к сервер на получение списка
         // TODO: запросы к серверу по всем imdbID
     }
