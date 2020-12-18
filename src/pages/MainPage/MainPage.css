@@ -15,5 +15,26 @@
 }
 
 .main-page__favorites {
-    width: 35%;   
+    width: 35%;
 }
+
+
+  @media (max-width: 650px){
+        .main-page__content {
+            padding: 42px calc(50% - 500px);
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+        }
+        .main-page__main-section {
+            
+            padding-left:17px;
+        }
+        .main-page__favorites {
+            width: 80%;
+            justify-content: center; 
+            margin:auto;
+            margin-bottom: 15px;
+    
+        }
+    }

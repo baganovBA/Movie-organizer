@@ -31,3 +31,9 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+@media (max-width: 650px){
+    .favorites{
+        max-width: 375px;
+    }
+}

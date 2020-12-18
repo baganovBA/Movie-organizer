@@ -39,3 +39,10 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+@media (max-width: 650px){
+    .search-box__form{
+        width: 80%;
+        margin:auto;
+    }
+}

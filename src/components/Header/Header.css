@@ -1,6 +1,7 @@
 .header {
     background: #496DDB;
     padding: 20px calc(50% - 500px) 10px;
+   
 }
 
 .header__title {
