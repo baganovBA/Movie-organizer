@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './MovieItem.css';
-import {connect} from 'react-redux'
 import store from '../../redux/store'
 
 class MovieItem extends Component {

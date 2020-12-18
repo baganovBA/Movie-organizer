@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 class Movies extends Component {
     
     render() { 
+        console.log('',this.props)
         return ( 
             <ul className="movies">
                 {this.props.movies.map((movie) => (

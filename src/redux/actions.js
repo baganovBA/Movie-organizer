@@ -15,7 +15,24 @@ export function removeMovie(id){
 
 export function nameList(name){
     return{
-        type:"ADD_NAME_INPUT",
+        type:"ADD_NAMELIST_HANDLER",
         payload:name
+    }
+}
+
+export function getSerchData({searchLine}){
+    return function(dispatch){
+        console.log("before serch",{searchLine})
+        fetch(`http://www.omdbapi.com/?s=${searchLine}&apikey=a1322b8e`)
+        .then(promise => promise.json())
+        .then((data)=>  {dispatch(addGetMovies(data.Search))})
+    }
+}
+
+function addGetMovies(data){
+    console.log('getMovies',data)
+    return{
+        type:"ADD_GET_MOVIES",
+        payload: data
     }
 }
