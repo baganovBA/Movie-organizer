@@ -16,7 +16,6 @@ class Favorites extends Component {
 
     nameListHandler = (e) =>{
         this.props.nameList(e.target.value)
-        console.log('listInput',e.target.value, this.props.listPage)
     }
 
     savedListHandler = () =>{
@@ -35,10 +34,13 @@ class Favorites extends Component {
     }
 
     render() { 
+        let textt='salam'
         return (
             <div className="favorites">
                 <input 
                  className="favorites__name"
+                 placeholder = "Новый список"
+
                  value={this.props.listPage.title}
                  onChange={(e)=>{this.nameListHandler(e)}}
                   />
@@ -46,16 +48,18 @@ class Favorites extends Component {
                     {this.props.listMovies.map((item) => {
                         return <li key={item.imdbID}>
                             {item.Title} ({item.Year}) &nbsp;
-                            <button onClick={()=>{this.removeListMovies(item.imdbID)}}>Del</button>
+                            <button  className='delete' onClick={()=>{this.removeListMovies(item.imdbID)}}>x</button>
                             </li>;
                     })}
                 </ul>
                 { this.state.link? 
                 <Link to={`/${this.state.link}`}>К списку Фильмов</Link> :
                  <button type="button"
-                 className="favorites__save"
+                 disabled={!this.props.listPage.title}
+                 className="fav" 
                  onClick={()=>{this.savedListHandler()}}
-                 >Сохранить список</button>}
+                 >Сохранить список</button>
+                 }
             </div>
         );
     }

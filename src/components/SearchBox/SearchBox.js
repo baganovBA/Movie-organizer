@@ -12,13 +12,13 @@ class SearchBox extends Component {
     searchLineChangeHandler = (e) => {
         e.preventDefault()
         this.props.searchLineHandler(e.target.value)
-        console.log(e.target.value)
     }
+
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        console.log('salammm')
     }
     render() {
-        console.log(this.props)
         const { searchLine } = this.props;
 
         return (
@@ -37,7 +37,6 @@ class SearchBox extends Component {
                     <button
                         type="submit"
                         className="search-box__form-submit"
-                        disabled={!searchLine}
                         onClick={() => {this.props.getSerchData({searchLine})}}
                     >
                         Искать
