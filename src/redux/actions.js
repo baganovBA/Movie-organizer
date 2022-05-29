@@ -21,13 +21,21 @@ export function nameList(name){
 }
 
 export function getSerchData({searchLine}){
-    return function(dispatch){
-        console.log("before serch",{searchLine})
-        fetch(`http://www.omdbapi.com/?s=${searchLine}&apikey=a1322b8e`)
-        .then(promise => promise.json())
-        .then((data)=>  {dispatch(addGetMovies(data.Search))})
+    if(!searchLine){
+alert('tapilmadi')
+console.log('tapilmadi')
     }
-}
+    else{
+    return function(dispatch){
+        
+
+            console.log('tapildi')
+            fetch(`http://www.omdbapi.com/?s=${searchLine}&apikey=a1322b8e`)
+            .then(promise => promise.json())
+            .then((data)=>  {dispatch(addGetMovies(data.Search))})
+        }
+    
+}}
 
 function addGetMovies(data){
     console.log('getMovies',data)
